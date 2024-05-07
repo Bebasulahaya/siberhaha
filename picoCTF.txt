@@ -1,0 +1,27 @@
+Glory of tha Garden 
+1. lihat soal dan petunjuknya 
+2. disitu gambar donwload gambar/copy lihat ke hex editor atau bisa langsung di linux 
+3. perintahnya : strings garden.jpg | grep picoCTF 
+4 Flag 
+
+WireShark dooo...doooo.....doooo.....
+1. install wireshark "apt install wireshark"
+2. menganalisis pake pcapng menggunakan tools wireshark untuk mengetahui 
+3. kita ikuti aliran TCP nya kita pilih follow kemudian lihat TCP stream 
+4. lalu ganti tcp.stream eq 0 sampai dapat misal eq 1-5
+5. decrypt kalo di enkripsi cari dulu pak tools untuk mengetahui tipe enkripsinya menggunakan apa 
+
+MacroHard WeakEdge
+1. lihat isi pptnya 
+2. kita bisa cari pptm itu apa 
+3. cari saja pptm nya di linux dengan perintah : cat Forensics\ is\ fun.pptm 
+4. cat Forensics\ is\ fun.pptm | picoCTF kalo tidak ada berarti secara binary tidak mengandung kata CTF 
+5. coba pake strings Forensics\ is\ fun.pptm 
+   mkdir coba, kita mv Forensics\ is\ fun.pptm coba/
+   cd coba
+6. unzip filenya dengan perintah : unzip Forensics\ is\ fun.pptm -d . 
+7. ls kita lihat isinya lalu masuk ke : cd ppt/slideMasters/
+8. liat isinya : cat hidden, bawa teksnya untuk menghilangkan spasinya lalu cari untuk mengetahui tipe       enksripsinya dan decode 
+
+
+

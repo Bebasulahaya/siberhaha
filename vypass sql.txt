@@ -1,0 +1,8 @@
+
+ --tamper=space2comment --random-agent --dbs
+ --tamper=space2comment --random-agent -D example.com --tables  
+
+
+
+
+

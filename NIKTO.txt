@@ -1,0 +1,18 @@
+
+Pesan "No CGI Directories found" dari Nikto menunjukkan bahwa alat tidak menemukan direktori yang mungkin berisi skrip CGI (Common Gateway Interface) yang rentan terhadap serangan.
+
+Untuk melakukan pemeriksaan pada semua direktori, Anda dapat menggunakan opsi -C all, seperti yang disarankan dalam pesan tersebut. Ini akan memaksa Nikto untuk memeriksa semua direktori untuk potensi skrip CGI yang rentan.
+
+Berikut adalah cara menggunakan opsi -C all dalam Nikto:
+
+* nikto -h example.com -C all
+
+Perintah di atas akan memindai situs web example.com dan memeriksa semua direktori untuk adanya skrip CGI yang rentan.
+
+Namun, perlu diingat bahwa penggunaan opsi -C all bisa membuat proses pemindaian menjadi lebih lambat, terutama pada situs web yang besar, karena Nikto akan memeriksa setiap direktori. Jika Anda hanya tertarik untuk memeriksa direktori tertentu, Anda bisa menentukan direktori tersebut dengan menggunakan opsi -C tanpa nilai, dan Nikto akan memeriksa hanya direktori-direktori tertentu yang umumnya terkait dengan skrip CGI.
+
+
+
+
+
+

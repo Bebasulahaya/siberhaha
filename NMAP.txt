@@ -1,0 +1,33 @@
+nmap 
+nmap -sV informasi versi
+nmap -A  informasi OS 
+nmap -O  informasi OS agresif scan
+nmap -V  informasi platform
+nmap -sA informasi firewall
+nmap -sS -p 
+nmap -V   menampilkan informasi yang lebih banyak 
+nmap --traceroute  menampilkan informasi rute 
+nmap --open  untuk melihat port yang terbuka saja 
+nmap --reason  untuk melihat alasan kenapa port itu terbuka 
+nmap -sn  mencari host yang aktif 
+
+SYN SCAN
+nmap -sS 
+
+TCP CONNECT SCAN 
+nmap -sT 
+
+OS DETECTION 
+nmap -O 
+
+SERVICE VERSION SCANNING
+nmap -sV 
+nmap -A 
+
+PORT SPESIFICATION & OUTPUT HANDLING 
+nmap -sS -p 21/80 
+nmap -sS -p 22,80,443 
+nmap -sS -p 22-100
+ 
+untuk menxcan semua port 
+nmap -p- target  

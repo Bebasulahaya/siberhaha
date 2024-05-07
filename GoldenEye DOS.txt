@@ -1,0 +1,20 @@
+
+install git terlebih dahulu jika belum di install
+
+
+
+install dulu tools nikto 
+
+* sudo apt install nikto
+* nikto -h example.com
+
+install goldeneye tools
+
+* git clone https://github.com/jseidl/GoldenEye
+* cd GoldenEye 
+* python3 goldeneye.py http://192.168.1.109/info.php -s 10 -m random
+
+install tools etherape 
+
+* sudo apt install etherape
+* sudo etherape 

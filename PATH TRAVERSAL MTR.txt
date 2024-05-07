@@ -1,0 +1,11 @@
+
+Path traversal adalah serangan keamanan yang dilakukan dengan cara memanipulasi jalur (path) file atau direktori dalam sebuah aplikasi atau sistem. Serangan ini bertujuan untuk mengakses file atau direktori di luar batasan yang seharusnya tidak dapat diakses oleh pengguna.
+
+Sebagai contoh, misalkan ada aplikasi web yang menerima input dari pengguna untuk menentukan file mana yang akan dibaca atau ditampilkan. Jika input tersebut tidak diverifikasi dengan benar, seorang penyerang bisa saja memanipulasi jalur file yang diberikan dalam permintaan untuk mengakses file di luar direktori yang seharusnya tidak boleh diakses.
+
+Contoh sederhana serangan path traversal:
+
+Aplikasi web memiliki parameter URL seperti ini: http://example.com/viewfile?file=example.txt.
+Penyerang mencoba memanipulasi parameter file dengan mengubahnya menjadi sesuatu seperti: http://example.com/viewfile?file=../../../etc/passwd.
+Jika aplikasi tidak melakukan verifikasi dengan benar, maka penyerang dapat berhasil mengakses file /etc/passwd yang seharusnya tidak dapat diakses, karena penambahan ../../../ membuatnya berada di luar direktori yang diizinkan.
+Serangan path traversal sering digunakan oleh penyerang untuk mendapatkan akses tidak sah ke file sensitif, seperti konfigurasi sistem, file yang berisi informasi rahasia, atau bahkan kode sumber aplikasi. Untuk mencegah serangan ini, sangat penting untuk melakukan validasi input dengan benar, membatasi akses file hanya ke direktori yang diperlukan, dan menggunakan mekanisme keamanan seperti whitelist atau blacklist untuk memastikan bahwa pengguna hanya dapat mengakses file yang seharusnya mereka akses.
