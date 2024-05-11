@@ -1,0 +1,13 @@
+mkdir naufal
+git clone https://example.com
+nmap ip 
+nmap ip -sV 
+nmap -sV ip 
+
+nc ip 
+sudo nmap -sV -sC -p- -T4 
+searchsploit libssh 
+
+pyhon3 CVE-2022-10928 -h 
+python3 cve-2018-10993.py ip -p 222 --shell 
+
