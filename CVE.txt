@@ -1,0 +1,18 @@
+CVE 
+
+1. Git Dumper 
+https://github.com/internetwache/GitTools?utm_source=canva&utm_medium=iframely
+
+2. Path Traversal
+https://blog.qualys.com/vulnerabilities-threat-research/2021/10/27/apache-http-server-path-traversal-remote-code-execution-cve-2021-41773-cve-2021-42013?utm_source=canva&utm_medium=iframely
+
+3. Libssh msg userauth
+https://github.com/SilasSpringer/CVE-2018-10933
+
+4. LFI  https://aditya-chauhan17.medium.com/local-file-inclusion-lfi-to-rce-7594e15870e1
+
+5. Postgreesql 
+https://medium.com/r3d-buck3t/command-execution-with-postgresql-copy-command-a79aef9c2767
+
+6. Path Traversal 2
+https://github.com/pentestblogin/Apache-2.4.50---Path-Traversal
