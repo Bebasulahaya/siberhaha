@@ -1,0 +1,88 @@
+1. Perencanaan dan Desain Jaringan
+Analisis Kebutuhan: Identifikasi jumlah pengguna, jenis aplikasi yang akan digunakan, dan volume data yang diproses.
+Desain Topologi Jaringan: Pilih topologi yang sesuai, seperti topologi bintang, cincin, atau mesh.
+2. Perangkat Keras Jaringan
+Router: Menghubungkan jaringan lokal dengan jaringan luar (seperti internet) dan mengelola lalu lintas data.
+Switch: Menghubungkan berbagai perangkat dalam jaringan lokal dan mengatur pengiriman data di antara mereka.
+Access Point (AP): Untuk jaringan Wi-Fi, menyediakan akses tanpa kabel.
+Modem: Menghubungkan jaringan lokal ke penyedia layanan internet (ISP).
+Cable dan Konektor: Kabel Ethernet (Cat5e, Cat6, Cat6a, atau Cat7) dan konektor untuk menghubungkan perangkat.
+Server: Untuk manajemen file, email, aplikasi, dan database.
+3. Perangkat Lunak Jaringan
+Sistem Operasi Jaringan: Seperti Windows Server, Linux, atau sistem operasi lain untuk server.
+Perangkat Lunak Manajemen Jaringan: Untuk monitoring, konfigurasi, dan pemeliharaan jaringan.
+Antivirus dan Keamanan: Perangkat lunak untuk melindungi dari ancaman dan serangan jaringan.
+4. Keamanan Jaringan
+Firewall: Untuk melindungi jaringan dari akses tidak sah dan serangan.
+Sistem Deteksi dan Pencegahan Intrusi (IDS/IPS): Untuk mendeteksi dan mencegah ancaman jaringan.
+VPN: Untuk akses aman ke jaringan dari lokasi jarak jauh.
+Manajemen Hak Akses: Untuk mengontrol hak akses pengguna dan data.
+5. Kabel dan Infrastruktur Fisik
+Ruang Server: Tempat yang aman dan terjaga untuk perangkat keras jaringan.
+Rack dan Panel: Untuk menempatkan perangkat keras dan kabel jaringan secara teratur.
+Pendingin dan Kipas: Untuk menjaga suhu perangkat keras tetap stabil.
+6. Perangkat Pengguna
+Komputer dan Laptop: Perangkat yang digunakan oleh karyawan untuk mengakses jaringan.
+Printer dan Perangkat Periferal: Untuk kebutuhan cetak dan periferal lainnya.
+7. Backup dan Pemulihan
+Sistem Backup: Untuk memastikan data penting dapat dipulihkan jika terjadi kegagalan sistem.
+Rencana Pemulihan Bencana: Prosedur dan peralatan untuk memulihkan operasi jaringan setelah kejadian bencana.
+8. Dokumentasi dan Pemeliharaan
+Dokumentasi Jaringan: Skema jaringan, konfigurasi perangkat, dan prosedur pemeliharaan.
+Jadwal Pemeliharaan: Rutinitas untuk memeriksa dan memperbarui sistem jaringan.
+9. Pelatihan Pengguna
+Pelatihan: Untuk memastikan karyawan dapat menggunakan jaringan dengan aman dan efisien.
+Dengan memastikan semua kebutuhan ini terpenuhi, Anda dapat membangun jaringan perkantoran yang stabil, aman, dan efisien.
+
+
+PC 104
+ROUTER 4 
+SWITCH 8
+MODEM 1
+CLOUD 
+SERVER 1
+
+GEDUNG A LANTAI 1 
+DIVISI  PROGRAMMING
+IP 192.168.3.130 - 192.168.3.142
+GATEWAY 192.168.3.1
+
+GEDUNG A LANTAI 2 
+DIVISI  NETWORK ENGINEERING
+IP 192.168.2.10 - 192.168.2.17
+GATEWAY 192.168.2.1
+
+GEDUNG A LANTAI 3 
+DIVISI  INFORMATION TECHNOLOGY 
+IP 110.2.3.14 - 110.2.3.26
+GATEWAY 110.2.3.1
+
+GEDUNG A LANTAI 4
+DIVISI  CYBER SECURITY 
+IP 100.1.1.1 - 100.1.1.13
+GATEWAY 100.2.2.1
+
+
+
+GEDUNG B LANTAI 1
+DIVISI  MARKETING 
+IP 125.1.2.130 - 125.1.2.142
+GATEWAY 125.1.2.1
+
+GEDUNG B LANTAI 2 
+DIVISI  MEDIA 
+IP 120.1.1.10 - 120.1.1.22
+GATEWAY 120.1.1.1
+
+GEDUNG B LANTAI 3 
+DIVISI INTERNET of THINGS
+IP 172.128.1.14 - 172.128.1.26
+GATEWAY 172.128.1.1
+
+GEDUNG B LANTAI 4 
+DIVISI  NETWORK & LINUX ADMINISTRATOR
+IP 135.128.1.1 - 135.128.1.13
+GATEWAY 192.168.1.0
+
+
+
