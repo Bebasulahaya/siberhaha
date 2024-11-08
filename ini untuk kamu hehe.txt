@@ -1,0 +1,82 @@
+
+#WEB SERVER CENTOS 
+
+sudo dnf install httpd -y 	
+sudo systemctl start httpd 
+sudo systemctl enable httpd 
+sudo dnf install php -y 
+sudo systemctl restart httpd 
+echo "<?php phpinfo(); ?>" | sudo tee /var/www/html/info.php 
+sudo firewall-cmd --permanent --add-service=http 
+sudo firewall-cmd –-reload 
+sudo systemctl start httpd 
+systemctl status httpd 
+sudo systemctl restart httpd 
+
+http://your_server_ip/info.php 
+
+
+#MENGHILANGKAN VERSI APACHE 
+
+sudo nano /etc/httpd/conf/httpd.conf 
+
+ServerTokens Prod 
+ServerSignature off 
+Header always unset "X-Powered-By" 
+
+sudo systemctl restart httpd 
+curl -I http://192.168.10.1
+
+
+#IDS CENTOS 
+
+dnf -y install epel-release 
+dnf update -y 
+dnf install suricata 
+suricata -V 
+ip --brief add 
+nano /etc/suricata/suricata.yaml 
+
+#Line 18 : In the "vars" section, define the network 
+HOME_NET: "[192.168.11.0/24]" 
+EXTRNAL_NET: "!$HOME_NET" 
+ #Line 589 : Set interface name in "af-packet" section af-packet: 
+    - interface: ens33
+
+nano /etc/sysconfig/suricata 
+
+# Add options to be passed to the daemon 
+OPTIONS="-i ens33 --user suricata " 
+
+suricata-update 
+systemctl enable --now suricata 
+systemctl status suricata 
+tail /var/log/suricata/suricata.log 
+tail -f /var/log/suricata/stats.log 
+tail -f /var/log/suricata/eve.json 
+curl http://testmynids.org/uid/index.html 
+cat /var/log/suricata/fast.log 
+
+
+#CERTIFICATE SHELL LOGIN 
+
+sudo dnf install openssh-server 
+ssh-keygen
+ 
+/home/naufal/.ssh/id_rsa_naufal
+
+ssh-copy-id -p22 -i /home/naufal/.ssh/id_rsa_naufal.pub naufal@192.168.110.104
+
+masukan passwd privat 
+masukan passwd root 
+
+sudo nano /etc/ssh/sshd_config
+systemctl restart sshd
+
+ssh naufal@192.168.110.104 
+
+
+
+
+
+
