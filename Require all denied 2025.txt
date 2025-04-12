@@ -1,0 +1,34 @@
+Istilah Require all denied biasanya muncul dalam konteks konfigurasi server web Apache (HTTP server), dan fungsinya adalah untuk memblokir akses ke sebuah direktori atau resource dari semua orang.
+
+🧾 Penjelasan Singkat
+
+Require all denied
+
+Artinya: “Tolak semua permintaan akses.”
+Tidak peduli siapa pengunjungnya, dari mana asalnya, atau apa perannya — mereka tidak akan bisa mengakses resource (file/direktori) yang diberi aturan ini.
+
+
+📁 Contoh Penggunaan di Apache
+Misalnya kamu punya file .htaccess atau konfigurasi VirtualHost seperti ini:
+
+
+<Directory "/var/www/html/secret">
+    Require all denied
+</Directory>
+
+
+Ini berarti direktori /secret di dalam folder web kamu tidak akan bisa diakses lewat browser atau permintaan HTTP apa pun.
+
+
+🔄 Kebalikannya:
+Require all granted → Izinkan semua orang mengakses.
+Require ip 192.168.1.100 → Hanya izinkan IP tertentu.
+Require user admin → Hanya izinkan user tertentu (jika pakai autentikasi).
+
+
+🔒 Kapan Require all denied Dipakai?
+
+Untuk menyembunyikan direktori sensitif (misalnya config, logs, atau private).
+Sebagai default policy, lalu ditimpa untuk beberapa user/IP tertentu.
+Untuk sementara waktu memblokir akses selama maintenance.
+
