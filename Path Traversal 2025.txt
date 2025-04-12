@@ -1,0 +1,28 @@
+Serangan Path Traversal (juga dikenal sebagai Directory Traversal) adalah jenis serangan keamanan di mana penyerang mencoba mengakses file atau direktori di luar direktori yang diizinkan oleh aplikasi. Tujuannya biasanya untuk membaca file sensitif seperti konfigurasi server, kredensial, atau file sistem operasi.
+
+🔍 Bagaimana Cara Kerjanya?
+Aplikasi web yang menerima input nama file dari pengguna (misalnya untuk membuka file tertentu) bisa rentan kalau tidak memvalidasi input dengan benar. Penyerang bisa menyisipkan karakter khusus seperti ../ (pada Linux) atau ..\ (pada Windows) untuk "menelusuri" ke atas dalam struktur direktori.
+
+Contoh:
+
+Misalnya kamu punya aplikasi yang membuka file seperti ini:
+GET /view?file=report.pdf
+Aplikasi mengambil nama file dari parameter file dan membukanya dari folder:
+open("files/" + filename)
+Penyerang bisa mencoba:
+GET /view?file=../../../../etc/passwd
+Sehingga path-nya menjadi:
+open("files/../../../../etc/passwd")
+Hasilnya? Bisa mengakses file sensitif /etc/passwd di sistem Linux.
+
+
+📁 Target Umum Path Traversal
+/etc/passwd (Linux)
+
+C:\Windows\system.ini (Windows)
+
+File konfigurasi aplikasi (.env, config.yml)
+
+File log atau source code aplikasi
+
+
