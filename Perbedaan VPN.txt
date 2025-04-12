@@ -1,0 +1,47 @@
+🔎 Penjelasan Singkat:
+1. PPTP (Point-to-Point Tunneling Protocol)
+➕ Sangat mudah di-setup (native di Windows).
+
+➖ Sudah tidak aman secara kriptografi, mudah di-crack (MS-CHAPv2 sudah dibobol).
+
+Cocok hanya untuk lingkungan terisolasi atau testing.
+
+
+2. L2TP/IPSec
+➕ Kombinasi tunneling + enkripsi (IPSec).
+
+➖ Perlu banyak port terbuka (500, 4500, 1701, ESP).
+
+➖ Bisa gagal kalau NAT/firewall terlalu ketat.
+
+✅ Cocok buat koneksi tetap yang aman, misalnya remote kerja.
+
+
+3. OpenVPN
+➕ Enkripsi kuat (pakai TLS, AES, dll).
+
+➕ Bisa jalan di port 443 → bisa menembus firewall ketat (seperti HTTPS).
+
+➖ Perlu install client khusus.
+
+✅ Cocok buat VPN public atau remote kerja aman.
+
+
+4. WireGuard
+➕ Sangat ringan dan cepat ⚡ (lebih cepat dari semua protokol lain).
+
+➕ Kode sangat sedikit → lebih mudah di-audit & aman.
+
+➖ Belum native di semua OS (tapi sudah banyak dukungan sekarang).
+
+✅ Cocok buat VPN modern, mobile user, IoT, remote access ringan.
+
+
+🧠 Kesimpulan Pilihan:
+Kebutuhan				Protokol Rekomendasi
+
+Kemudahan setup cepat			PPTP (tapi kurang aman)
+Remote user dengan keamanan oke		✅ L2TP/IPSec atau OpenVPN
+Menembus firewall kantor/negara		✅ OpenVPN (port 443)
+Performa & keamanan optimal		✅✅ WireGuard
+Site-to-site VPN			L2TP/IPSec atau WireGuard
