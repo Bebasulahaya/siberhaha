@@ -1,0 +1,60 @@
+📌 Apa itu L2TP?
+L2TP adalah VPN protocol yang dipakai buat membuat tunnel antara dua titik jaringan (misalnya antara client dan router Mikrotik). Tapi L2TP sendiri nggak punya enkripsi — makanya biasanya digabung dengan IPSec supaya datanya aman (L2TP/IPSec).
+
+
+Cara Kerja L2TP/IPSec — Step by Step
+🎯 Tujuan: Klien (HP/laptop) bisa akses jaringan lokal Mikrotik secara aman melalui internet
+
+
+💬 1. Inisialisasi dan Negosiasi IPSec (Phase 1)
+
+Klien VPN (Windows/HP) kirim request ke Mikrotik via UDP port 500 (ISAKMP)
+Proses ini disebut IKE Phase 1
+Mereka menyepakati:
+Enkripsi yang dipakai (misal: AES-256)
+Authentication (shared key)
+Algoritma hashing
+Jika cocok, maka dibuatlah secure channel (ISAKMP SA)
+🔐 Ini adalah lapisan keamanan yang akan melindungi tunnel L2TP
+
+
+🔐 2. IPSec Tunnel Dibentuk (Phase 2)
+
+Di sini terbentuk IPSec SA (Security Association)
+Koneksi aman lewat protokol ESP (protocol 50) atau UDP 4500 (kalau NAT)
+Semua data L2TP yang lewat tunnel ini akan dienkripsi
+
+
+📡 3. L2TP Tunnel Dibentuk (UDP 1701)
+
+Setelah IPSec aktif, klien mulai negosiasi L2TP tunnel ke Mikrotik (pakai port UDP 1701)
+L2TP membentuk tunnel layer 2 (tunneling Point-to-Point Protocol / PPP)
+
+
+🧾 4. Autentikasi User PPP
+
+Klien kirim username dan password (misal: vpnuser/vpnpassword)
+Mikrotik cocokkan dengan PPP Secrets
+Kalau cocok → koneksi sukses, IP dialokasikan (dari remote-address pool)
+
+
+5. Data Terenkripsi Melewati Tunnel
+
+Semua traffic dari klien akan:
+Masuk ke tunnel L2TP
+Dilindungi IPSec
+Didekripsi oleh Mikrotik
+Klien bisa akses IP LAN, server internal, bahkan keluar internet (jika dikonfigurasi)
+
+
+🧠 Intinya:
+Layer	Fungsi
+
+IPSec	Enkripsi data, keamanan (Phase 1 & 2)
+L2TP	Buat tunnel data (PPP)
+PPP	Autentikasi user VPN
+IP	Jalur internet/transmisi
+
+
+
+

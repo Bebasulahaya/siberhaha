@@ -1,0 +1,111 @@
+L2TP (Layer 2 Tunneling Protocol) yang dipasangkan dengan IPSec jauh lebih aman dibanding PPTP karena dia pakai enkripsi yang kuat dan lebih sulit dibypass/didisadap.
+
+- apa Itu L2TP/IPSec?
+L2TP sendiri cuma protokol tunneling, jadi dia nggak punya enkripsi. Nah, digabung sama IPSec, baru dia jadi kuat karena:
+
+L2TP = bikin tunnel
+IPSec = bikin enkripsi + autentikasi
+
+Jadi kamu dapat koneksi aman dan terenkripsi dari client ke router.
+
+- Kebutuhan Sebelum Konfigurasi:
+IP Publik di Mikrotik
+
+Port berikut dibuka di firewall:
+
+UDP 500 (ISAKMP - IPSec)
+UDP 1701 (L2TP)
+UDP 4500 (NAT Traversal)
+Protokol IPSec-ESP (protocol 50)
+
+- LANGKAH SETTING L2TP/IPSec VPN DI MIKROTIK (WINBOX)
+	 Target: Remote user bisa konek ke jaringan lokal via L2TP/IPSec VPN
+
+1. Buat PPP Profile
+Buka Winbox
+
+Masuk ke menu PPP
+Klik tab Profiles
+Klik tombol + (Add)
+Isi seperti berikut:
+Name: l2tp-profile
+Local Address: 192.168.88.1
+Remote Address: 192.168.88.100-192.168.88.200 (range untuk user VPN)
+Use Encryption: centang ✅
+Klik OK
+
+
+2. Tambahkan User VPN
+Masih di menu PPP, klik tab Secrets
+
+Klik + (Add)
+Isi:
+Name: vpnuser
+Password: vpnpassword
+Service: pilih l2tp
+Profile: l2tp-profile
+
+
+3. Aktifkan L2TP Server
+Masih di PPP, klik tab L2TP Server
+
+Klik Enable
+Centang opsi Use IPsec
+Di bagian IPsec Secret, isi dengan shared key, contoh: vpnkey123
+Default Profile: pilih l2tp-profile
+
+4. Buka Firewall untuk Port VPN
+
+Buka menu IP > Firewall > Filter Rules
+Klik + (Add)
+Atur seperti ini (buat satu-satu):
+Rule 1 – UDP 500, 1701, 4500
+Chain: input
+Protocol: udp
+Dst. Port: 500,1701,4500
+Action: accept
+Comment: Allow L2TP/IPSec
+Rule 2 – Allow IPSec-ESP
+Chain: input
+Protocol: 50 (ESP)
+Action: accept
+Comment: Allow IPSec-ESP
+Klik Apply dan OK setiap rule
+
+
+5. (Opsional) NAT untuk VPN Clients
+Kalau kamu NAT jaringan lokal ke internet, tambahkan:
+
+Buka tab NAT
+Klik + (Add)
+Atur:
+Chain: srcnat
+Src. Address: 192.168.88.0/24
+Out Interface: WAN kamu (misal: ether1)
+Action: masquerade
+
+
+6. Setting VPN Client di Windows
+Settings > Network & Internet > VPN
+
+Add a VPN connection
+VPN provider: Windows (built-in)
+Connection name: Mikrotik VPN
+Server name: IP publik Mikrotik
+VPN type: L2TP/IPSec with pre-shared key
+Pre-shared key: vpnkey123 (sama seperti tadi)
+Username: vpnuser
+Password: vpnpassword
+Klik Save, lalu Connect
+
+
+7. Verifikasi Koneksi
+Di Mikrotik:
+
+Buka PPP > Active Connections
+Kalau berhasil, user VPN akan muncul
+Bisa juga cek log: Log > Info
+
+
+
+
