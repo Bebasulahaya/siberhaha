@@ -1,0 +1,94 @@
+🔹 Apa Itu Endpoint REST API?
+Endpoint REST API adalah alamat URL tertentu pada server yang bisa diakses oleh klien (misalnya aplikasi web atau mobile) untuk mengambil, mengirim, memperbarui, atau menghapus data.
+
+Bayangin REST API itu kayak restoran:
+
+Kamu (klien) minta makanan ke pelayan (API)
+Pelayan bawa permintaan ke dapur (server)
+Dapur kirim hasilnya ke kamu
+
+Nah, endpoint itu alamat pesanan spesifiknya 🍜
+💡 Contoh Sederhana: ada di file PNG
+
+
+🧩 Penjelasan Struktur Endpoint
+Contoh endpoint:
+https://api.websitekamu.com/api/users/123
+
+Bagian-bagiannya:
+
+https:// → protokol
+api.websitekamu.com → domain/server
+/api/users/123 → endpoint path
+
+
+📦 Biasanya Endpoint REST API akan:
+
+Menggunakan HTTP method (GET, POST, PUT, DELETE)
+Mengembalikan data dalam format JSON
+Bersifat stateless (setiap permintaan berdiri sendiri)
+Bisa dipakai oleh frontend (React, Vue, mobile app, dll.)
+
+   ===================================================================================
+		           MODIFIKASI REQUEST DATABASE 
+
+🎯 Tujuan:
+Kamu ingin menambahkan parameter lain ke dalam request berdasarkan data yang sudah ada di database.
+
+Misalnya:
+Klien kirim request:
+
+GET /api/products?category=electronics
+
+Lalu kamu tambahkan parameter promo=true berdasarkan info dari database (misalnya karena hari ini ada promo khusus untuk kategori itu).
+
+✅ Langkah Umum (Di Backend/Server):
+
+1. Terima request dari client
+Framework kamu bakal nerima request dan parsing parameter dari URL.
+
+2. Ambil data dari database
+Gunakan parameter request untuk cari data di database dan cek apakah ada informasi tambahan yang perlu dimasukkan.
+
+3. Tambahkan parameter ke query atau response
+Gunakan data dari database untuk memodifikasi query, atau tambahkan data ekstra ke dalam response.
+
+
+💻 Contoh Kasus dengan Express.js (Node.js)
+
+
+app.get('/api/products', async (req, res) => {
+  const category = req.query.category;
+
+  // Ambil info tambahan dari database
+  const promo = await db.getPromoStatus(category); // misalnya hasilnya true/false
+
+  // Modifikasi query berdasarkan promo
+  let products;
+  if (promo) {
+    products = await db.getProductsWithPromo(category);
+  } else {
+    products = await db.getProducts(category);
+  }
+
+  // Tambahkan info promo di response juga
+  res.json({
+    category: category,
+    promo: promo,
+    results: products
+  });
+});
+
+🧠 Konsep yang Sama Bisa Diterapkan di Framework Lain, seperti:
+
+Laravel (PHP) → pakai Request object dan Eloquent
+Flask / Django (Python) → pakai request.args dan query ke ORM
+Spring Boot (Java) → pakai @RequestParam dan JPA query
+Golang → pakai mux dan query builder
+
+
+
+
+
+
+
