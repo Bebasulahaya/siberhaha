@@ -1,0 +1,51 @@
+🧠 Apa Itu Skrip CGI?
+CGI adalah singkatan dari Common Gateway Interface.
+Skrip CGI adalah program kecil yang dijalankan di sisi server untuk menangani permintaan dari pengguna (biasanya dari form HTML) dan menghasilkan konten dinamis — seperti halaman HTML yang isinya berubah tergantung input pengguna.
+
+🔧 Contoh Sederhana Cara Kerjanya
+
+Pengguna isi form di browser
+Klik "Submit"
+Form dikirim ke server, misalnya ke /cgi-bin/process.cgi
+Server menjalankan process.cgi
+Skrip mengolah data, lalu mengirim hasilnya balik ke browser dalam bentuk HTML
+
+
+💻 Contoh Skrip CGI dalam Python:
+
+#!/usr/bin/env python3
+print("Content-type: text/html\n")
+print("<html><body>")
+print("<h1>Hello from CGI script!</h1>")
+print("</body></html>")
+
+File ini:
+
+Harus disimpan di folder yang diizinkan untuk CGI (biasanya /cgi-bin/)
+Harus bisa dijalankan (chmod +x)
+Akan dijalankan oleh server ketika diminta
+
+
+
+🌐 Web Server & CGI
+
+Agar bisa pakai CGI, kamu perlu:
+Mengaktifkan modul CGI di Apache (mod_cgi)
+Menentukan folder khusus seperti ini di konfigurasi Apache:
+apache
+
+<Directory "/usr/lib/cgi-bin">
+    Options +ExecCGI
+    AddHandler cgi-script .cgi .py
+    Require all granted
+</Directory>
+
+
+📚 Bahasa yang Bisa Dipakai untuk CGI
+Python 🐍
+Perl 🐫
+Bash
+C/C++
+PHP (walaupun sekarang lebih umum pakai sebagai module)
+
+
